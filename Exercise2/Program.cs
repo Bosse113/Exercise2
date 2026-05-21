@@ -53,8 +53,8 @@
             //input sparas som en var. Minst 3 ord. Programmet plockar ut det tredje ordet.
             Console.WriteLine("Skriv en mening med minst 3 ord:");
             string mening = Console.ReadLine();
-            string[] delmening = mening.Split(' ');
-            Console.WriteLine($"Meningens tredje ord är : {delmening[2]} ."); //arrayen börjar på 0 så tredje ordet är [2].
+            string[] delMening = mening.Split(' ');//string.Split('char') delar upp en stäng i en array med delning vid char
+            Console.WriteLine($"Meningens tredje ord är : {delMening[2]} ."); //arrayen börjar på 0 så tredje ordet är [2].
         }
 
         private static void repeat()
@@ -65,7 +65,7 @@
             string inData=Console.ReadLine();
             for (int i = 0;i <= 9; i++)
             {
-                Console.Write($"{i+1}.{inData}, ");
+                Console.Write($"{i+1}.{inData}, ");//i+1 gör så att det skriver ut 1-10.
             }
         }
 
@@ -76,7 +76,7 @@
 
             int totalPris = 0; //startvärde på totalpriset
             Console.Write("Hur många personer?");
-            int numberOfGuests = int.Parse(Console.ReadLine());
+            int numberOfGuests = int.Parse(Console.ReadLine()); // int.Parse() gör om inmatning till int från string
             Console.WriteLine("För skriv in ålder för varje person:");
             for (int i = 0; i < numberOfGuests; i++)
             {
