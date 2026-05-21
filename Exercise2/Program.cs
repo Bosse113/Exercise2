@@ -7,11 +7,13 @@
             bool meny = true;
 
             while (meny == true)
-            {
+            {   //*****
                 // MENY
-                Console.WriteLine("--- Huvudmeny ---");
+                //*****
+                Console.WriteLine($"{Environment.NewLine}--- Huvudmeny ---");
                 Console.WriteLine("1. Ålderskategori");
                 Console.WriteLine("2. Totalpris för sällskapet");
+                Console.WriteLine("3. Repetera en inmatad text 10 gånger");
                 Console.WriteLine("0. Avsluta");
                 Console.Write("Välj: ");
 
@@ -25,6 +27,9 @@
                     case "2":
                         groupOfPeople();
                         break;
+                    case "3": 
+                        repeat();
+                        break;
                     case "0":
                         meny = false;
                         break;
@@ -37,8 +42,23 @@
             }
         }
 
+        private static void repeat()
+        {   //****************************************
+            //Repetera input från användare 10 gånger
+            //****************************************
+            Console.WriteLine("Skriv in en text :");
+            string inData=Console.ReadLine();
+            for (int i = 0;i <= 9; i++)
+            {
+                Console.Write($"{i+1}.{inData}, ");
+            }
+        }
+
         private static void groupOfPeople()
-        {
+        {   //*********************************************
+            //Räknar ut totalpris på inmatat antal besökare
+            //*********************************************
+
             int totalPris = 0; //startvärde på totalpriset
             Console.Write("Hur många personer?");
             int numberOfGuests = int.Parse(Console.ReadLine());
@@ -64,8 +84,9 @@
          }
 
         private static void CheckAge()
-        {
+        {   //*******************************************************************
             //Kolla om ungdom <20 (80kr) eller pensionär >64 (90kr) annars 120 kr
+            //*******************************************************************
             Console.Write("Skriv in åldern på personen:");
             int age = int.Parse(Console.ReadLine());
             if (age < 20)
