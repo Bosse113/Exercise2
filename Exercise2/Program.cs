@@ -30,9 +30,13 @@
                     case "3": 
                         repeat();
                         break;
+                    case "4":
+                        thirdWord();
+                        break;
                     case "0":
                         meny = false;
                         break;
+                    
 
                     default:
                         Console.WriteLine("Felaktig inmatning");
@@ -40,6 +44,12 @@
                 }
 
             }
+        }
+
+        private static void thirdWord()
+        {
+            //ToDo: Dela upp en angiven mening med .Split(char).Dela vid mellanslag
+            //input sparas som en var. Minst 3 ord. Programmet plockar ut det tredje ordet.
         }
 
         private static void repeat()
