@@ -43,7 +43,7 @@
             Console.Write("Hur många personer?");
             int numberOfGuests = int.Parse(Console.ReadLine());
             Console.WriteLine("För skriv in ålder för varje person:");
-            for (int i = 0; i < numberOfGuests - 1; i++)
+            for (int i = 0; i < numberOfGuests; i++)
             {
                 Console.Write($"Ålder på person {i+1} :");
                 int guestAge = int.Parse(Console.ReadLine());
