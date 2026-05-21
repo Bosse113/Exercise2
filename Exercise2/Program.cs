@@ -14,6 +14,7 @@
                 Console.WriteLine("1. Ålderskategori");
                 Console.WriteLine("2. Totalpris för sällskapet");
                 Console.WriteLine("3. Repetera en inmatad text 10 gånger");
+                Console.WriteLine("4. Hitta tredje ordet i en mening.");
                 Console.WriteLine("0. Avsluta");
                 Console.Write("Välj: ");
 
@@ -48,8 +49,12 @@
 
         private static void thirdWord()
         {
-            //ToDo: Dela upp en angiven mening med .Split(char).Dela vid mellanslag
+            //Dela upp en angiven mening med .Split(char).Dela vid mellanslag
             //input sparas som en var. Minst 3 ord. Programmet plockar ut det tredje ordet.
+            Console.WriteLine("Skriv en mening med minst 3 ord:");
+            string mening = Console.ReadLine();
+            string[] delmening = mening.Split(' ');
+            Console.WriteLine($"Meningens tredje ord är : {delmening[2]} ."); //arrayen börjar på 0 så tredje ordet är [2].
         }
 
         private static void repeat()
