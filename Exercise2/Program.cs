@@ -52,8 +52,10 @@
             //Dela upp en angiven mening med .Split(char).Dela vid mellanslag
             //input sparas som en var. Minst 3 ord. Programmet plockar ut det tredje ordet.
             Console.WriteLine("Skriv en mening med minst 3 ord:");
-            string mening = Console.ReadLine();
-            string[] delMening = mening.Split(' ');//string.Split('char') delar upp en stäng i en array med delning vid char
+            var mening = Console.ReadLine()!;
+            //string[] delMening = mening.Split(' ');//string.Split('char') delar upp en stäng i en array med delning vid char
+            
+            var delMening = mening.Split(' ', StringSplitOptions.RemoveEmptyEntries);//Delar upp meningen i ord (array) och tar bort tomma ord (extra blanksteg).
             Console.WriteLine($"Meningens tredje ord är : {delMening[2]} ."); //arrayen börjar på 0 så tredje ordet är [2].
         }
 
