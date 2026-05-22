@@ -62,10 +62,18 @@
             //Repetera input från användare 10 gånger
             //****************************************
             Console.WriteLine("Skriv in en text :");
-            string inData=Console.ReadLine();
-            for (int i = 0;i <= 9; i++)
+            string inData=Console.ReadLine()!;
+            if (inData.Length > 3)//Kontrollera längden på inmatad text
             {
-                Console.Write($"{i+1}.{inData} ");//i+1 gör så att det skriver ut 1-10.
+                for (int i = 0; i <= 9; i++)
+                {
+                    Console.Write($"{i + 1}.{inData} ");//i+1 gör så att det skriver ut 1-10.
+                }
+            }
+            else
+            {
+                //Om texten är kortare än 3 tecken:
+                Console.WriteLine($"{Environment.NewLine} Texten måste vara längre än 3 tecken.{Environment.NewLine}");
             }
         }
 
@@ -76,26 +84,34 @@
 
             int totalPris = 0; //startvärde på totalpriset
             Console.Write("Hur många personer?");
-            int numberOfGuests = int.Parse(Console.ReadLine()); // int.Parse() gör om inmatning till int från string
-            Console.WriteLine("För skriv in ålder för varje person:");
-            for (int i = 0; i < numberOfGuests; i++)
+            int numberOfGuests = int.Parse(Console.ReadLine()!); // int.Parse() gör om inmatning till int från string
+            if (numberOfGuests > 0)//kör om antal större än 0
             {
-                Console.Write($"Ålder på person {i+1} :");
-                int guestAge = int.Parse(Console.ReadLine());
-                if (guestAge < 20) 
+
+                Console.WriteLine("För skriv in ålder för varje person:");
+                for (int i = 0; i < numberOfGuests; i++)
                 {
-                    totalPris += 80;
+                    Console.Write($"Ålder på person {i + 1} :");
+                    int guestAge = int.Parse(Console.ReadLine()!);
+                    if (guestAge < 20)
+                    {
+                        totalPris += 80;
+                    }
+                    else if (guestAge > 64)
+                    {
+                        totalPris += 90;
+                    }
+                    else
+                    {
+                        totalPris += 120;
+                    }
                 }
-                else if (guestAge >64)
-                {
-                    totalPris += 90;
-                }
-                else
-                {
-                    totalPris += 120;
-                }
+                Console.WriteLine($"Antal personer: {numberOfGuests} totalpris : {totalPris} ");
             }
-            Console.WriteLine($"Antal personer: {numberOfGuests} totalpris : {totalPris} ");
+            else
+            {
+                Console.WriteLine($"{Environment.NewLine}Antal personer måste vara fler än 0{Environment.NewLine}");
+            }
          }
 
         private static void CheckAge()
@@ -103,8 +119,8 @@
             //Kolla om ungdom <20 (80kr) eller pensionär >64 (90kr) annars 120 kr
             //*******************************************************************
             Console.Write("Skriv in åldern på personen:");
-            int age = int.Parse(Console.ReadLine());
-            if (age >= 0 && age <= 120)
+            int age = int.Parse(Console.ReadLine()!);
+            if (age >= 0 && age <= 120) //Kontroll om ålder ligger mellan 0 och 120 år
             {
 
 
@@ -123,8 +139,8 @@
             }
             else
             {
-                Console.WriteLine("Felaktig inmatning!");
-                Console.WriteLine("Ålder ska vara 0-120 år.");
+                Console.WriteLine($"{Environment.NewLine}Felaktig inmatning!");
+                Console.WriteLine($"Ålder ska vara 0-120 år.{Environment.NewLine}");
             }
         }
     }
