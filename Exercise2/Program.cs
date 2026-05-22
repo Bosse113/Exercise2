@@ -65,7 +65,7 @@
             string inData=Console.ReadLine();
             for (int i = 0;i <= 9; i++)
             {
-                Console.Write($"{i+1}.{inData}, ");//i+1 gör så att det skriver ut 1-10.
+                Console.Write($"{i+1}.{inData} ");//i+1 gör så att det skriver ut 1-10.
             }
         }
 
@@ -104,17 +104,27 @@
             //*******************************************************************
             Console.Write("Skriv in åldern på personen:");
             int age = int.Parse(Console.ReadLine());
-            if (age < 20)
+            if (age >= 0 && age <= 120)
             {
-                Console.WriteLine("Ungdomspris:80 kr.");
-            }
-            else if (age > 64)
-            {
-                Console.WriteLine("Pensionärspris:90 kr.");
+
+
+                if (age < 20)
+                {
+                    Console.WriteLine("Ungdomspris:80 kr.");
+                }
+                else if (age > 64)
+                {
+                    Console.WriteLine("Pensionärspris:90 kr.");
+                }
+                else
+                {
+                    Console.WriteLine("Standardpris:120 kr.");
+                }
             }
             else
             {
-                Console.WriteLine("Standardpris:120 kr.");
+                Console.WriteLine("Felaktig inmatning!");
+                Console.WriteLine("Ålder ska vara 0-120 år.");
             }
         }
     }
