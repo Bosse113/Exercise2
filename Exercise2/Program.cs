@@ -93,7 +93,15 @@
                 {
                     Console.Write($"Ålder på person {i + 1} :");
                     int guestAge = int.Parse(Console.ReadLine()!);
-                    if (guestAge < 20)
+                    if (guestAge < 5)
+                    {
+                        totalPris += 0;
+                    }
+                    else if (guestAge > 100)
+                    {
+                        totalPris += 0;
+                    }
+                    else if (guestAge < 20)
                     {
                         totalPris += 80;
                     }
@@ -122,9 +130,15 @@
             int age = int.Parse(Console.ReadLine()!);
             if (age >= 0 && age <= 120) //Kontroll om ålder ligger mellan 0 och 120 år
             {
-
-
-                if (age < 20)
+                if (age < 5)
+                {
+                    Console.WriteLine("Gratis entre.");
+                }
+                else if (age > 100)
+                {
+                    Console.WriteLine("Gratis entre.");
+                }
+                else if (age < 20)
                 {
                     Console.WriteLine("Ungdomspris:80 kr.");
                 }
