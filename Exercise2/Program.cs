@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            //ToDo:bättre och mer noggrann felkontroll på input
             bool meny = true;
 
             while (meny == true)
