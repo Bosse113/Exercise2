@@ -130,35 +130,45 @@
             //Kolla om ungdom <20 (80kr) eller pensionär >64 (90kr) annars 120 kr
             //*******************************************************************
             Console.Write("Skriv in åldern på personen:");
-            int age = int.Parse(Console.ReadLine()!);
-            if (age >= 0 && age <= 120) //Kontroll om ålder ligger mellan 0 och 120 år
+            //int age = int.Parse(Console.ReadLine()!);
+            string input = Console.ReadLine();
+            if (int.TryParse(input, out int age))//Kollar om inmatningen kan göras om till heltal. 
             {
-                if (age < 5)
+                if (age >= 0 && age <= 120) //Kontroll om ålder ligger mellan 0 och 120 år
                 {
-                    Console.WriteLine("Gratis entre.");
-                }
-                else if (age > 100)
-                {
-                    Console.WriteLine("Gratis entre.");
-                }
-                else if (age < 20)
-                {
-                    Console.WriteLine("Ungdomspris:80 kr.");
-                }
-                else if (age > 64)
-                {
-                    Console.WriteLine("Pensionärspris:90 kr.");
+                    if (age < 5)
+                    {
+                        Console.WriteLine("Gratis entre.");
+                    }
+                    else if (age > 100)
+                    {
+                        Console.WriteLine("Gratis entre.");
+                    }
+                    else if (age < 20)
+                    {
+                        Console.WriteLine("Ungdomspris:80 kr.");
+                    }
+                    else if (age > 64)
+                    {
+                        Console.WriteLine("Pensionärspris:90 kr.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Standardpris:120 kr.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Standardpris:120 kr.");
+                    Console.WriteLine($"{Environment.NewLine}Felaktig inmatning!"); //Kontroll av inmatning 
+                    Console.WriteLine($"Ålder ska vara 0-120 år.{Environment.NewLine}");
                 }
+               
             }
             else
             {
-                Console.WriteLine($"{Environment.NewLine}Felaktig inmatning!");
-                Console.WriteLine($"Ålder ska vara 0-120 år.{Environment.NewLine}");
+                Console.WriteLine("Ogiltig inmatning. Vänligen ange ett heltal.");
             }
+            
         }
     }
     
